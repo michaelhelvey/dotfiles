@@ -464,5 +464,3 @@ hi Normal guibg=gray10
 hi EndOfBuffer guibg=gray10
 
 source "./color_utils.vim"
-
-# changes
