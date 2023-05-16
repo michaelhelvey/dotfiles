@@ -1,0 +1,3 @@
+*.bak
+.config/Microsoft\\VisualStudio\ Services/
+.config/gh/hosts.yml
