@@ -98,7 +98,7 @@ window:
 # Font configuration
 font:
   # Point size
-  size: 18
+  size: 15
   offset:
     x: 0
     # line height:
@@ -111,8 +111,10 @@ font:
     # family: FiraCode Nerd Font
     # family: RobotoMono Nerd Font
     # family: Inconsolata Nerd Font
-    family: Iosevka Nerd Font
+    # family: Iosevka Nerd Font
     # family: UbuntuMono Nerd Font
+    family: IBM Plex Mono
+    # family: MesloLGS NF
     # The `style` can be specified to pick a specific face.
     style: Regular
     # Bold font face
@@ -554,38 +556,33 @@ live_config_reload: true
 key_bindings:
   - { key: Slash, mods: Control, chars: "\x1f" }
 colors:
-  # Default colors
+  name: DWM rob
+  author: ""
   primary:
-    background: '#181818'
-    foreground: '#d8d8d8'
-
-  # Colors the cursor will use if `custom_cursor_colors` is true
+    background: "#000000"
+    foreground: "#ffffff"
   cursor:
-    text: '#d8d8d8'
-    cursor: '#d8d8d8'
-
-  # Normal colors
+    text: "#000000"
+    cursor: "#ffffff"
   normal:
-    black: '#181818'
-    red: '#ab4642'
-    green: '#a1b56c'
-    yellow: '#f7ca88'
-    blue: '#7cafc2'
-    magenta: '#ba8baf'
-    cyan: '#86c1b9'
-    white: '#d8d8d8'
-
-  # Bright colors
+    black: "#151515"
+    red: "#bf7979"
+    green: "#97b26b"
+    yellow: "#cdcda1"
+    blue: "#4a5463"
+    magenta: "#9c3885"
+    cyan: "#88aadd"
+    white: "#ffffff"
   bright:
-    black: '#585858'
-    red: '#ab4642'
-    green: '#a1b56c'
-    yellow: '#f7ca88'
-    blue: '#7cafc2'
-    magenta: '#ba8baf'
-    cyan: '#86c1b9'
-    white: '#f8f8f8'
-theme: Base16-Default-Dark
+    black: "#505450"
+    red: "#f4a45f"
+    green: "#c5f779"
+    yellow: "#ffffaf"
+    blue: "#7d8794"
+    magenta: "#e628ba"
+    cyan: "#99ccff"
+    white: "#dedede"
+theme: Dwmrob
 
 #- { key: Paste,                                       action: Paste          }
 #- { key: Copy,                                        action: Copy           }

@@ -33,6 +33,7 @@ alias nrt="npm run test"
 alias nrb="npm run build"
 alias vimrc="nvim $HOME/.config/nvim/init.lua"
 alias ka="killall"
+alias k="kubectl"
 
 VIM_CONFIG_DIR=$HOME/.config/nvim
 
@@ -119,7 +120,7 @@ export DOTNET_PATH="/usr/local/share/dotnet/sdk/"
 export PATH="$DOTNET_PATH:$PATH"
 
 # pnpm
-export PNPM_HOME="/Users/michaelhelvey/Library/pnpm"
+export PNPM_HOME="$HOME/Library/pnpm"
 export PATH="$PNPM_HOME:$PATH"
 # pnpm end
 
@@ -143,3 +144,6 @@ export PATH="/Users/michaelhelvey/.rd/bin:$PATH"
 ### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
 
 eval "$(direnv hook zsh)"
+
+# opam configuration
+[[ ! -r /Users/helvetici/.opam/opam-init/init.zsh ]] || source /Users/helvetici/.opam/opam-init/init.zsh  > /dev/null 2> /dev/null
