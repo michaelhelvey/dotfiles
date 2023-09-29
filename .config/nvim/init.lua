@@ -120,44 +120,21 @@ require('lazy').setup({
   },
 
   {
-    "blazkowolf/gruber-darker.nvim",
+    'rose-pine/neovim',
     priority = 1000,
     config = function()
-      vim.cmd.colorscheme 'gruber-darker'
-      vim.api.nvim_set_hl(0, "CursorColumn", { bg = "#404040" })
-      vim.wo.cursorcolumn = true
+      require('rose-pine').setup({
+        disable_background = true,
+        disable_float_background = true,
+        dark_variant = 'main',
+
+        -- vim.api.nvim_set_hl(0, "CursorColumn", { bg = "#404040" })
+        -- vim.wo.cursorcolumn = true
+      })
+
+      vim.cmd.colorscheme 'rose-pine'
     end,
   },
-
-  -- {
-  --   'rose-pine/neovim',
-  --   priority = 1000,
-  --   config = function()
-  --     require('rose-pine').setup({
-  --       disable_background = true,
-  --       disable_float_background = true,
-  --       dark_variant = 'main'
-  --     })
-  --
-  --     -- vim.cmd.colorscheme 'rose-pine'
-  --   end,
-  -- },
-  --
-  -- {
-  --   "catppuccin/nvim",
-  --   name = "catppuccin",
-  --   priority = 1000,
-  --   config = function()
-  --     require('catppuccin').setup({
-  --       flavour = 'mocha'
-  --     })
-  --
-  --     vim.cmd.colorscheme 'catppuccin'
-  --
-  --     vim.api.nvim_set_hl(0, "CursorColumn", { bg = "#404040" })
-  --     vim.wo.cursorcolumn = true
-  --   end,
-  -- },
 
   {
     -- Set lualine as statusline
@@ -290,8 +267,8 @@ vim.keymap.set({ 'n', 'i' }, 'fd', '<Esc>', { silent = true })
 vim.keymap.set('n', '<Leader>to', '<Cmd>Trouble<CR>', { desc = "Open Trouble buffer" })
 
 -- set listchars
-vim.opt.listchars = { tab = '→ ', space = '·' }
-vim.opt.list = true
+-- vim.opt.listchars = { tab = '→ ', space = '·' }
+-- vim.opt.list = true
 
 vim.opt.swapfile = false
 

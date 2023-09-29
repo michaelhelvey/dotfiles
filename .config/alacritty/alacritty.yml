@@ -98,11 +98,11 @@ window:
 # Font configuration
 font:
   # Point size
-  size: 15
+  size: 20
   offset:
     x: 0
     # line height:
-    y: 0
+    y: 1
   # Normal (roman) font face
   normal:
     # family: CaskaydiaCove Nerd Font
@@ -112,8 +112,8 @@ font:
     # family: RobotoMono Nerd Font
     # family: Inconsolata Nerd Font
     # family: Iosevka Nerd Font
-    # family: UbuntuMono Nerd Font
-    family: IBM Plex Mono
+    family: UbuntuMono Nerd Font
+    # family: IBM Plex Mono
     # family: MesloLGS NF
     # The `style` can be specified to pick a specific face.
     style: Regular
@@ -555,34 +555,6 @@ live_config_reload: true
 #in the order they were defined in.
 key_bindings:
   - { key: Slash, mods: Control, chars: "\x1f" }
-colors:
-  name: DWM rob
-  author: ""
-  primary:
-    background: "#000000"
-    foreground: "#ffffff"
-  cursor:
-    text: "#000000"
-    cursor: "#ffffff"
-  normal:
-    black: "#151515"
-    red: "#bf7979"
-    green: "#97b26b"
-    yellow: "#cdcda1"
-    blue: "#4a5463"
-    magenta: "#9c3885"
-    cyan: "#88aadd"
-    white: "#ffffff"
-  bright:
-    black: "#505450"
-    red: "#f4a45f"
-    green: "#c5f779"
-    yellow: "#ffffaf"
-    blue: "#7d8794"
-    magenta: "#e628ba"
-    cyan: "#99ccff"
-    white: "#dedede"
-theme: Dwmrob
 
 #- { key: Paste,                                       action: Paste          }
 #- { key: Copy,                                        action: Copy           }
@@ -705,3 +677,7 @@ theme: Dwmrob
 #log_level: Warn
 # Print all received window events.
 #print_events: false
+
+# See https://github.com/alacritty/alacritty-theme
+import:
+ - ~/.config/alacritty/themes/themes/base16_default_dark.yaml

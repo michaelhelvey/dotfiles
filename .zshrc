@@ -102,7 +102,8 @@ export PATH=$PATH:~/.local/bin
 export PATH=$PATH:~/.cargo/bin
 export PATH=$PATH:/usr/local/go/bin
 export PATH=$PATH:/usr/local/go/bin
-export PATH=$PATH:$HOME/dev/thirdparty/zig
+# export PATH=$PATH:$HOME/dev/thirdparty/zig
+export PATH="/opt/homebrew/opt/llvm/bin:$PATH"
 
 export LIBRARY_PATH="$LIBRARY_PATH:$(brew --prefix)/lib"
 
@@ -147,3 +148,10 @@ eval "$(direnv hook zsh)"
 
 # opam configuration
 [[ ! -r /Users/helvetici/.opam/opam-init/init.zsh ]] || source /Users/helvetici/.opam/opam-init/init.zsh  > /dev/null 2> /dev/null
+
+# bun completions
+[ -s "/Users/helvetici/.bun/_bun" ] && source "/Users/helvetici/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
