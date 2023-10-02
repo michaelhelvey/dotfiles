@@ -96,12 +96,19 @@ function todo() {
 	vim $notes_dir$filename
 }
 
+# FZF customization
+unalias z 2> /dev/null
+z() {
+  [ $# -gt 0 ] && _z "$*" && return
+  cd "$(_z -l 2>&1 | fzf --height 40% --nth 2.. --reverse --inline-info +s --tac --query "${*##-* }" | sed 's/^[0-9,.]* *//')"
+}
+
 # PATH CONFIGURATION
 
 export PATH=$PATH:~/.local/bin
 export PATH=$PATH:~/.cargo/bin
 export PATH=$PATH:/usr/local/go/bin
-export PATH=$PATH:/usr/local/go/bin
+export PATH=$PATH:~/go/bin
 # export PATH=$PATH:$HOME/dev/thirdparty/zig
 export PATH="/opt/homebrew/opt/llvm/bin:$PATH"
 
@@ -155,3 +162,5 @@ eval "$(direnv hook zsh)"
 # bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
