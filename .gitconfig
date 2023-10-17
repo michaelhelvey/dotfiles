@@ -7,6 +7,7 @@
 
 [core]
 	editor = nvim
+	excludesfile = /Users/michaelhelvey/.gitignore_global
 
 [filter "lfs"]
 	clean = git-lfs clean -- %f

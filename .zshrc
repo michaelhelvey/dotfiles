@@ -27,10 +27,10 @@ alias c="clear"
 alias vim="nvim"
 alias vi="nvim"
 alias ls="lsd -l --icon=never"
-alias nrd="npm run dev"
-alias nrs="npm run start"
-alias nrt="npm run test"
-alias nrb="npm run build"
+alias nrd="bun run --silent dev"
+alias nrs="bun run --silent start"
+alias nrt="bun run test"
+alias nrb="bun run build"
 alias vimrc="nvim $HOME/.config/nvim/init.lua"
 alias ka="killall"
 alias k="kubectl"
@@ -96,6 +96,11 @@ function todo() {
 	vim $notes_dir$filename
 }
 
+# updates my company's prettier configuration when I am writing markdown files
+function update_prose_wrap() {
+	node -e "const mod = require('@transport4/prettier-config/index'); mod.proseWrap = 'always'; require('fs').writeFileSync('./node_modules/@transport4/prettier-config/index.js', 'module.exports = ' + JSON.stringify(mod, null, 2) + ';')"
+}
+
 # FZF customization
 unalias z 2> /dev/null
 z() {
@@ -111,6 +116,7 @@ export PATH=$PATH:/usr/local/go/bin
 export PATH=$PATH:~/go/bin
 # export PATH=$PATH:$HOME/dev/thirdparty/zig
 export PATH="/opt/homebrew/opt/llvm/bin:$PATH"
+export PATH=$PATH:~/dev/flutter/bin
 
 export LIBRARY_PATH="$LIBRARY_PATH:$(brew --prefix)/lib"
 
@@ -164,3 +170,6 @@ export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# bun completions
+[ -s "/Users/michaelhelvey/.bun/_bun" ] && source "/Users/michaelhelvey/.bun/_bun"

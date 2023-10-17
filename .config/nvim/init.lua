@@ -1,6 +1,5 @@
--- Set <space> as the leader key
--- See `:help mapleader`
---  NOTE: Must happen before plugins are required (otherwise wrong leader will be used)
+-- Set mapleader before loading plugins
+-- NOTE: Must happen before plugins are required (otherwise wrong leader will be used)
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 vim.g.encoding = 'utf-8'
@@ -34,6 +33,8 @@ require('lazy').setup({
   'tpope/vim-rhubarb',
   'tpope/vim-surround',
   'justinmk/vim-sneak',
+  'ap/vim-buftabline',
+  'mg979/vim-visual-multi',
 
   -- Detect tabstop and shiftwidth automatically
   'tpope/vim-sleuth',
@@ -55,6 +56,20 @@ require('lazy').setup({
       -- Additional lua configuration, makes nvim stuff amazing!
       'folke/neodev.nvim',
     },
+  },
+
+  {
+    'jose-elias-alvarez/null-ls.nvim',
+    config = function()
+      local null_ls = require('null-ls')
+
+      null_ls.setup({
+        sources = {
+          null_ls.builtins.diagnostics.eslint,
+          null_ls.builtins.formatting.prettier,
+        }
+      })
+    end
   },
 
   {
@@ -113,6 +128,42 @@ require('lazy').setup({
       "MunifTanjim/nui.nvim",
     },
     config = function()
+      require("neo-tree").setup({
+        close_if_last_window = true,
+        default_component_configs = {
+          indent = {
+            expander_collapsed = "+",
+            expander_expanded = "-"
+          },
+          git_status = {
+            symbols = {
+              deleted = "",
+              renamed = "",
+              modified = "",
+              untracked = "",
+              ignored = "",
+              unstaged = "",
+              staged = "",
+              conflict = ""
+            }
+          }
+        },
+        filesystem = {
+          follow_current_file = { enabled = true },
+          components = {
+            icon = function(config, node, state)
+              if node.type == "file" or node.type == "directory" then
+                return {}
+              end
+              return require("neo-tree.sources.common.components").icon(config,
+                node, state)
+            end
+          }
+        },
+        buffers = {
+          follow_current_file = { enabled = true }
+        }
+      })
       vim.keymap.set('n', '<leader>b', '<Cmd>Neotree toggle<CR>', { desc = 'Open Neotree' })
       vim.keymap.set('n', '<leader>nf', '<Cmd>Neotree filesystem reveal<CR>',
         { desc = 'Open Neotree and reveal location' })
@@ -127,12 +178,11 @@ require('lazy').setup({
         disable_background = true,
         disable_float_background = true,
         dark_variant = 'main',
-
-        -- vim.api.nvim_set_hl(0, "CursorColumn", { bg = "#404040" })
-        -- vim.wo.cursorcolumn = true
       })
 
       vim.cmd.colorscheme 'rose-pine'
+      -- vim.api.nvim_set_hl(0, "CursorColumn", { bg = "#404040" })
+      -- vim.wo.cursorcolumn = true
     end,
   },
 
@@ -150,24 +200,24 @@ require('lazy').setup({
     },
   },
 
-  {
-    -- Add indentation guides even on blank lines
-    'lukas-reineke/indent-blankline.nvim',
-    -- Enable `lukas-reineke/indent-blankline.nvim`
-    -- See `:help indent_blankline.txt`
-    main = "ibl",
-    opts = {},
-    config = function()
-      require("ibl").setup({
-        indent = {
-          char = '┊',
-        },
-        whitespace = {
-          remove_blankline_trail = true
-        }
-      })
-    end,
-  },
+  -- {
+  --   -- Add indentation guides even on blank lines
+  --   'lukas-reineke/indent-blankline.nvim',
+  --   -- Enable `lukas-reineke/indent-blankline.nvim`
+  --   -- See `:help indent_blankline.txt`
+  --   main = "ibl",
+  --   opts = {},
+  --   config = function()
+  --     require("ibl").setup({
+  --       indent = {
+  --         char = '┊',
+  --       },
+  --       whitespace = {
+  --         remove_blankline_trail = true
+  --       }
+  --     })
+  --   end,
+  -- },
 
   -- "gc" to comment visual regions/lines
   { 'numToStr/Comment.nvim', opts = {} },
@@ -225,7 +275,7 @@ require('lazy').setup({
 vim.o.hlsearch = false
 
 -- Make line numbers default
-vim.wo.number = true
+vim.wo.relativenumber = true
 
 -- Enable mouse mode
 vim.o.mouse = 'a'
@@ -269,10 +319,21 @@ vim.keymap.set('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = tr
 vim.keymap.set('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
 
 -- My wrists don't work
-vim.keymap.set({ 'n', 'i' }, 'fd', '<Esc>', { silent = true })
+vim.keymap.set({ 'n', 'i', 'v' }, 'fd', '<Esc>', { silent = true })
+-- I also hit shift way too much
+vim.cmd('cnoreabbrev W w')
+
+-- buffer nav
+vim.keymap.set({ 'n' }, "[b", "<cmd>bprevious<CR>")
+vim.keymap.set({ 'n' }, "]b", "<cmd>bnext<CR>")
+vim.keymap.set({ 'n', 'i' }, "<C-s>", "<cmd>w<CR>")
+
+vim.keymap.set({ 'n' }, '<C-w>o', function()
+  vim.cmd(':w|%bd!|e#|bd#')
+end)
 
 -- trouble.nvim
-vim.keymap.set('n', '<Leader>to', '<Cmd>Trouble<CR>', { desc = "Open Trouble buffer" })
+vim.keymap.set('n', '<Leader>tt', '<Cmd>TroubleToggle<CR>', { desc = "Open Trouble buffer" })
 
 -- set listchars
 -- vim.opt.listchars = { tab = '→ ', space = '·' }
@@ -319,7 +380,11 @@ vim.keymap.set('n', '<leader>/', function()
 end, { desc = '[/] Fuzzily search in current buffer' })
 
 vim.keymap.set('n', '<leader>gf', require('telescope.builtin').git_files, { desc = 'Search [G]it [F]iles' })
-vim.keymap.set('n', '<leader>sf', require('telescope.builtin').find_files, { desc = '[S]earch [F]iles' })
+
+vim.keymap.set('n', '<leader>sf', function()
+  require('telescope.builtin').find_files({ hidden = true })
+end, { desc = '[S]earch [F]iles' })
+
 vim.keymap.set('n', '<leader>sh', require('telescope.builtin').help_tags, { desc = '[S]earch [H]elp' })
 vim.keymap.set('n', '<leader>sw', require('telescope.builtin').grep_string, { desc = '[S]earch current [W]ord' })
 vim.keymap.set('n', '<leader>sg', require('telescope.builtin').live_grep, { desc = '[S]earch by [G]rep' })
