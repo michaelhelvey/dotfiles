@@ -49,12 +49,7 @@ require('lazy').setup({
       },
     },
   },
-  -- {
-  --   'blazkowolf/gruber-darker.nvim',
-  --   config = function()
-  --     vim.cmd.colorscheme 'gruber-darker'
-  --   end
-  -- },
+  { 'blazkowolf/gruber-darker.nvim', },
   {
     'craftzdog/solarized-osaka.nvim',
     config = function()
@@ -63,14 +58,23 @@ require('lazy').setup({
         on_colors = function() end,
         on_highlights = function() end
       })
-
-      vim.cmd.colorscheme 'solarized-osaka'
+    end
+  },
+  {
+    "catppuccin/nvim",
+    name = "catppuccin",
+    config = function()
+      require("catppuccin").setup({
+        flavour = "mocha",
+        transparent_background = true
+      })
     end
   },
   "MunifTanjim/nui.nvim",
 
   require 'msh.plugins.neovim',
-  require 'msh.plugins.lsp'
+  require 'msh.plugins.lsp',
+  require 'msh.plugins.autoformat'
 })
 
 -- Global settings:
@@ -89,7 +93,7 @@ vim.o.completeopt = 'menuone,noselect'
 vim.wo.signcolumn = 'yes'
 
 -- Keymaps:
-vim.keymap.set({ 'n', 'v', 'i', }, 'fd', '<Esc>', { silent = true}) -- my wrists dont work
+vim.keymap.set({ 'n', 'v', 'i', }, 'fd', '<Esc>', { silent = true }) -- my wrists dont work
 vim.keymap.set({ 'n' }, "[b", "<cmd>bprevious<CR>")
 vim.keymap.set({ 'n' }, "]b", "<cmd>bnext<CR>")
 vim.keymap.set({ 'n' }, '<C-w>o', function()
@@ -100,5 +104,8 @@ vim.cmd('cnoreabbrev W w') -- I hit shift too much
 -- Plugin setup:
 require 'msh.plugins.neovim_after'
 require 'msh.plugins.lsp_after'
+
+-- Color theme:
+vim.cmd.colorscheme 'catppuccin'
 
 -- vim: ts=2 sts=2 sw=2 et

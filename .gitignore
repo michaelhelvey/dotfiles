@@ -6,3 +6,5 @@
 .config/wireshark
 .config/configstore
 .config/flutter
+.config/github-copilot
+.config/auth0
