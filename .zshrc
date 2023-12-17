@@ -35,6 +35,16 @@ alias vimrc="nvim $HOME/.config/nvim/init.lua"
 alias ka="killall"
 alias k="kubectl"
 
+unalias gd 
+function gd() {
+	# Check whether pnpm-lock.yaml exists first, then edit the diff command:
+	if [ -f "pnpm-lock.yaml" ]; then
+		git diff $@ -- ':!pnpm-lock.yaml'
+	else
+		git diff $@
+	fi
+}	
+
 VIM_CONFIG_DIR=$HOME/.config/nvim
 
 alias vimcolor="cd $VIM_CONFIG_DIR && nvim $VIM_CONFIG_DIR/after/plugin/color.lua"
@@ -169,7 +179,13 @@ eval "$(direnv hook zsh)"
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
 
+export DENO_INSTALL="$HOME/.deno"
+export PATH="$DENO_INSTALL/bin:$PATH"
+
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # bun completions
 [ -s "/Users/michaelhelvey/.bun/_bun" ] && source "/Users/michaelhelvey/.bun/_bun"
+
+autoload -U +X bashcompinit && bashcompinit
+complete -o nospace -C /opt/homebrew/bin/terraform terraform

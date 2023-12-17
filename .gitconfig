@@ -3,7 +3,7 @@
 	email = michael.helvey1@gmail.com
 
 [init]
-	defaultBranch = master
+	defaultBranch = main
 
 [core]
 	editor = nvim

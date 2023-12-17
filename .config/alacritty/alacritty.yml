@@ -60,7 +60,7 @@ window:
   #     - buttonless: Title bar, transparent background and no title bar buttons
   decorations: full
   # Background opacity
-  opacity: 0.8
+  opacity: 1.0
   # ^ Window opacity as a floating point number from `0.0` to `1.0`.
   # The value `0.0` is completely transparent and `1.0` is opaque.
   # Startup Mode (changes require restart)
@@ -72,7 +72,7 @@ window:
   #
   # Values for `startup_mode` (macOS only):
   #   - SimpleFullscreen
-  #startup_mode: Windowed
+  # startup_mode: SimpleFullscreen
   # Window title
   title: Ora Et Labora
   # Allow terminal applications to change Alacritty's window title.
@@ -98,11 +98,11 @@ window:
 # Font configuration
 font:
   # Point size
-  size: 24
+  size: 20
   offset:
     x: 0
     # line height:
-    y: 2
+    y: 1
   # Normal (roman) font face
   normal:
     # family: CaskaydiaCove Nerd Font
@@ -112,10 +112,11 @@ font:
     # family: RobotoMono Nerd Font
     # family: Inconsolata Nerd Font
     # family: Iosevka Nerd Font
-    family: UbuntuMono Nerd Font
+    # family: UbuntuMono Nerd Font
     # family: IBM Plex Mono
     # family: MesloLGS NF
     # family: Intel One Mono
+    family: Comic Code Ligatures
     # The `style` can be specified to pick a specific face.
     style: Regular
     # Bold font face
@@ -681,9 +682,8 @@ key_bindings:
 
 # See https://github.com/alacritty/alacritty-theme
 import:
-  - ~/.config/alacritty/themes/themes/kanagawa_dragon.yaml
-
-# Color overrides:
+  - ~/.config/alacritty/themes/themes/base16_dark_default.yaml
+Color overrides:
 colors:
   primary:
     background: "#000000"
