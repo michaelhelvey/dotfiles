@@ -57,7 +57,6 @@ return {
           buffer = bufnr,
           callback = function()
             if not format_is_enabled then
-              -- TODO: for certain languages, we need to shell out to the appropriate tool (e.g. prettier)
               return
             end
 

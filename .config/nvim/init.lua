@@ -23,6 +23,20 @@ require('lazy').setup({
   'ap/vim-buftabline',
   'mg979/vim-visual-multi',
   {
+    'prettier/vim-prettier',
+    config = function()
+      vim.g['prettier#autoformat'] = 1
+      vim.g['prettier#autoformat_require_pragma'] = 0
+      -- vim.g['prettier#autoformat_config_present'] = 0
+      -- vim.g['prettier#autoformat_config_use_local'] = 0
+      -- vim.g['prettier#autoformat_config_path'] = '~/.config/prettier/.prettierrc'
+      -- vim.g['prettier#autoformat_config_filetype_map'] = {
+      --   typescriptreact = 'typescript',
+      --   javascriptreact = 'javascript',
+      -- }
+    end
+  },
+  {
     'numToStr/Comment.nvim',
     config = function()
       require('Comment').setup()
@@ -91,6 +105,7 @@ vim.o.smartcase = true
 vim.o.termguicolors = true
 vim.o.completeopt = 'menuone,noselect'
 vim.wo.signcolumn = 'yes'
+vim.o.tabstop = 4
 
 -- set grepprg to ripgrep:
 vim.o.grepprg = 'rg --vimgrep --smart-case --follow'
