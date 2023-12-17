@@ -92,6 +92,9 @@ vim.o.termguicolors = true
 vim.o.completeopt = 'menuone,noselect'
 vim.wo.signcolumn = 'yes'
 
+-- set grepprg to ripgrep:
+vim.o.grepprg = 'rg --vimgrep --smart-case --follow'
+
 -- Keymaps:
 vim.keymap.set({ 'n', 'v', 'i', }, 'fd', '<Esc>', { silent = true }) -- my wrists dont work
 vim.keymap.set({ 'n' }, "[b", "<cmd>bprevious<CR>")

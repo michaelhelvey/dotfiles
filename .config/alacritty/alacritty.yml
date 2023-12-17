@@ -58,7 +58,7 @@ window:
   # Values for `decorations` (macOS only):
   #     - transparent: Title bar, transparent background and title bar buttons
   #     - buttonless: Title bar, transparent background and no title bar buttons
-  decorations: full
+  decorations: none
   # Background opacity
   opacity: 1.0
   # ^ Window opacity as a floating point number from `0.0` to `1.0`.
@@ -98,11 +98,11 @@ window:
 # Font configuration
 font:
   # Point size
-  size: 20
+  size: 18
   offset:
     x: 0
     # line height:
-    y: 1
+    y: 0
   # Normal (roman) font face
   normal:
     # family: CaskaydiaCove Nerd Font
@@ -116,7 +116,8 @@ font:
     # family: IBM Plex Mono
     # family: MesloLGS NF
     # family: Intel One Mono
-    family: Comic Code Ligatures
+    family: Maple Mono
+    # family: Comic Code Ligatures
     # The `style` can be specified to pick a specific face.
     style: Regular
     # Bold font face

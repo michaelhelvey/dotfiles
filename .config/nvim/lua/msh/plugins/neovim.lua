@@ -82,4 +82,5 @@ return {
       },
     },
   },
+  { 'folke/trouble.nvim' },
 }
