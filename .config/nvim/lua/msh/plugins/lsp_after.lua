@@ -115,22 +115,25 @@ cmp.setup {
       behavior = cmp.ConfirmBehavior.Replace,
       select = true,
     },
-    ['<Tab>'] = cmp.mapping.confirm {
-      behavior = cmp.ConfirmBehavior.Replace,
-      select = true,
-    },
-    ['<S-Tab>'] = cmp.mapping(function(fallback)
+    ['<Tab>'] = cmp.mapping(function(fallback)
       if cmp.visible() then
-        cmp.select_prev_item()
-      elseif luasnip.locally_jumpable(-1) then
-        luasnip.jump(-1)
+        cmp.select_next_item()
+      elseif luasnip.expand_or_locally_jumpable() then
+        luasnip.expand_or_jump()
       else
         fallback()
       end
-    end, { 'i', 's' }),
+    end, { 'i', 's' })
   },
   sources = {
     { name = 'nvim_lsp' },
     { name = 'luasnip' },
   },
 }
+
+vim.keymap.set({ 'i' }, '<S-Tab>', 'copilot#Accept("<CR>")', {
+  expr = true,
+  replace_keycodes = false
+})
+
+vim.g.copilot_no_tab_map = true

@@ -98,7 +98,7 @@ window:
 # Font configuration
 font:
   # Point size
-  size: 18
+  size: 20
   offset:
     x: 0
     # line height:
@@ -116,8 +116,8 @@ font:
     # family: IBM Plex Mono
     # family: MesloLGS NF
     # family: Intel One Mono
-    family: Maple Mono
-    # family: Comic Code Ligatures
+    # family: Maple Mono
+    family: Comic Code Ligatures
     # The `style` can be specified to pick a specific face.
     style: Regular
     # Bold font face
