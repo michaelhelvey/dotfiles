@@ -7,16 +7,42 @@
 // custom settings, run the `open default settings` command
 // from the command palette or from `Zed` application menu.
 {
-  "theme": "Catppuccin Mocha",
+  "theme": "Catppuccin Mocha - No Italics",
+  // Appearance:
+  "buffer_font_family": "Berkeley Mono",
+  "buffer_line_height": "standard",
+  "buffer_font_size": 16,
+  "ui_font_size": 16,
+
+  // "experimental.theme_overrides": {
+  //   "editor.background": "#080808",
+  //   "panel.background": "#080808",
+  //   "tab_bar.background": "#080808",
+  //   "title_bar.background": "#080808",
+  //   "editor.subheader.background": "#080808",
+  //   "editor.gutter.background": "#080808",
+  //   "tab.inactive_background": "#080808",
+  //   "status_bar.background": "#080808"
+  // },
+
+  // Line Settings:
+  "preferred_line_length": 100,
+  "show_wrap_guides": true,
+  "soft_wrap": "preferred_line_length",
   "relative_line_numbers": true,
+  "remove_trailing_whitespace_on_save": true,
+  "ensure_final_newline_on_save": true,
+
+  // General:
   "git": {
     "git_gutter": "hide"
   },
   "vim_mode": true,
-  "buffer_line_height": "standard",
-  "buffer_font_size": 16,
-  "ui_font_size": 16,
   "show_copilot_suggestions": false,
+  "format_on_save": "on",
+  "use_autoclose": false,
+
+  // Terminal Settings:
   "terminal": {
     "line_height": "standard",
     "copy_on_select": true,

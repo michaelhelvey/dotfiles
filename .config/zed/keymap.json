@@ -24,6 +24,12 @@
     }
   },
   {
+    "context": "Editor && vim_mode == insert && (showing_completions || showing_code_actions)",
+    "bindings": {
+      "f d": ["editor::Cancel"]
+    }
+  },
+  {
     "context": "Editor && vim_mode == visual",
     "bindings": {
       "f d": ["vim::SwitchMode", "Normal"]

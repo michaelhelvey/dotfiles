@@ -9,3 +9,4 @@
 .config/github-copilot
 .config/zed/conversations
 .config/auth0
+.config/zed/.tmp*
