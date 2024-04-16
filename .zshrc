@@ -148,6 +148,9 @@ export PNPM_HOME="$HOME/Library/pnpm"
 export PATH="$PNPM_HOME:$PATH"
 # pnpm end
 
+# Add zed CLI:
+alias zed="/Applications/Zed.app/Contents/MacOS/cli"
+
 # Add Visual Studio Code (code)
 export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
 
@@ -189,3 +192,5 @@ export PATH="$DENO_INSTALL/bin:$PATH"
 
 autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /opt/homebrew/bin/terraform terraform
+
+[ -f "/Users/helvetici/.ghcup/env" ] && . "/Users/helvetici/.ghcup/env" # ghcup-env

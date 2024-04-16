@@ -72,7 +72,7 @@ window:
   #
   # Values for `startup_mode` (macOS only):
   #   - SimpleFullscreen
-  # startup_mode: SimpleFullscreen
+  startup_mode: SimpleFullscreen
   # Window title
   title: Ora Et Labora
   # Allow terminal applications to change Alacritty's window title.
@@ -98,7 +98,7 @@ window:
 # Font configuration
 font:
   # Point size
-  size: 20
+  size: 16
   offset:
     x: 0
     # line height:
@@ -107,7 +107,7 @@ font:
   normal:
     # family: CaskaydiaCove Nerd Font
     # family: NotoMono Nerd Font
-    # family: JetbrainsMono Nerd Font
+    family: JetbrainsMono Nerd Font
     # family: FiraCode Nerd Font
     # family: RobotoMono Nerd Font
     # family: Inconsolata Nerd Font
@@ -117,7 +117,7 @@ font:
     # family: MesloLGS NF
     # family: Intel One Mono
     # family: Maple Mono
-    family: Comic Code Ligatures
+    # family: Comic Code Ligatures
     # The `style` can be specified to pick a specific face.
     style: Regular
     # Bold font face
@@ -684,7 +684,7 @@ key_bindings:
 # See https://github.com/alacritty/alacritty-theme
 import:
   - ~/.config/alacritty/themes/themes/base16_dark_default.yaml
-Color overrides:
-colors:
-  primary:
-    background: "#000000"
+# Color overrides:
+# colors:
+#   primary:
+#     background: "#000000"

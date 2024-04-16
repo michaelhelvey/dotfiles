@@ -1,0 +1,29 @@
+[
+  {
+    "context": "Editor",
+    "bindings": {
+      "shift-k": "editor::Hover",
+      "ctrl-shift-j": "zed::IncreaseBufferFontSize",
+      "ctrl-shift-k": "zed::DecreaseBufferFontSize"
+    }
+  },
+  {
+    "context": "Editor && vim_mode == insert",
+    "bindings": {
+      "f d": ["vim::SwitchMode", "Normal"]
+    }
+  },
+  {
+    "context": "Editor && vim_mode == visual",
+    "bindings": {
+      "f d": ["vim::SwitchMode", "Normal"]
+    }
+  },
+  {
+    "context": "Pane",
+    "bindings": {
+      "[ b": "pane::ActivatePrevItem",
+      "] b": "pane::ActivateNextItem"
+    }
+  }
+]
