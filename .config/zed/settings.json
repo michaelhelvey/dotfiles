@@ -7,7 +7,11 @@
 // custom settings, run the `open default settings` command
 // from the command palette or from `Zed` application menu.
 {
-  "theme": "Atelier Dune Dark",
+  "theme": "Catppuccin Mocha",
+  "relative_line_numbers": true,
+  "git": {
+    "git_gutter": "hide"
+  },
   "vim_mode": true,
   "buffer_line_height": "standard",
   "buffer_font_size": 16,
