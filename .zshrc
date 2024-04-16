@@ -35,7 +35,7 @@ alias vimrc="nvim $HOME/.config/nvim/init.lua"
 alias ka="killall"
 alias k="kubectl"
 
-unalias gd 
+unalias gd
 function gd() {
 	# Check whether pnpm-lock.yaml exists first, then edit the diff command:
 	if [ -f "pnpm-lock.yaml" ]; then
@@ -43,7 +43,11 @@ function gd() {
 	else
 		git diff $@
 	fi
-}	
+}
+
+function root() {
+	cd $(git rev-parse --show-toplevel)
+}
 
 VIM_CONFIG_DIR=$HOME/.config/nvim
 
@@ -65,6 +69,26 @@ function kill_port() {
 			kill -KILL $pid
 		done
 	fi
+}
+
+function clapify {
+	echo "${1}" | sed 's/ / 👏 /g'
+}
+
+function sarcasm {
+	local input=$1
+	local output=""
+	local length=${#input}
+
+	for (( i=1; i<=length; i++ )); do
+	if (( i % 2 == 0 )); then
+	    output+=$(echo "${input[i]}" | tr '[:lower:]' '[:upper:]')
+	else
+	    output+="${input[i]}"
+	fi
+	done
+
+	echo "$output"
 }
 
 alias kepler-postgres="$HOME/dev/kepler/bin/cloud_sql_proxy -instances=kepler-production-251715:us-central1:kepler-postgres=tcp:5434"
@@ -124,9 +148,10 @@ export PATH=$PATH:~/.local/bin
 export PATH=$PATH:~/.cargo/bin
 export PATH=$PATH:/usr/local/go/bin
 export PATH=$PATH:~/go/bin
-# export PATH=$PATH:$HOME/dev/thirdparty/zig
+export PATH=$PATH:$HOME/dev/thirdparty/zig/0.12.0-dev
+export PATH=$PATH:$HOME/dev/thirdparty/zig
 export PATH="/opt/homebrew/opt/llvm/bin:$PATH"
-export PATH=$PATH:~/dev/flutter/bin
+export PATH=$PATH:~/dev/learning/flutter/flutter/bin
 
 export LIBRARY_PATH="$LIBRARY_PATH:$(brew --prefix)/lib"
 
@@ -169,9 +194,6 @@ export PATH="/Users/michaelhelvey/.rd/bin:$PATH"
 
 eval "$(direnv hook zsh)"
 
-# opam configuration
-[[ ! -r /Users/helvetici/.opam/opam-init/init.zsh ]] || source /Users/helvetici/.opam/opam-init/init.zsh  > /dev/null 2> /dev/null
-
 # bun completions
 [ -s "/Users/helvetici/.bun/_bun" ] && source "/Users/helvetici/.bun/_bun"
 
@@ -189,3 +211,7 @@ export PATH="$DENO_INSTALL/bin:$PATH"
 
 autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /opt/homebrew/bin/terraform terraform
+
+[ -f "/Users/michaelhelvey/.ghcup/env" ] && source "/Users/michaelhelvey/.ghcup/env" # ghcup-env
+
+eval $(opam env)
