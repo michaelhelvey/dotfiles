@@ -17,18 +17,18 @@
       "shift-k": "editor::Hover"
     }
   },
-  {
-    "context": "Editor && vim_mode == insert",
-    "bindings": {
-      "f d": ["vim::SwitchMode", "Normal"]
-    }
-  },
-  {
-    "context": "Editor && vim_mode == insert && (showing_completions || showing_code_actions)",
-    "bindings": {
-      "f d": ["editor::Cancel"]
-    }
-  },
+  // {
+  //   "context": "Editor && vim_mode == insert",
+  //   "bindings": {
+  //     "f d": ["vim::SwitchMode", "Normal"]
+  //   }
+  // },
+  // {
+  //   "context": "Editor && vim_mode == insert && (showing_completions || showing_code_actions)",
+  //   "bindings": {
+  //     "f d": ["editor::Cancel"]
+  //   }
+  // },
   {
     "context": "Editor && vim_mode == visual",
     "bindings": {

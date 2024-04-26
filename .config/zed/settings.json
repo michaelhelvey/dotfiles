@@ -9,20 +9,28 @@
 {
   "theme": "Catppuccin Mocha - No Italics",
   // Appearance:
-  "buffer_font_family": "Berkeley Mono",
+  "buffer_font_family": "Comic Code Ligatures",
   "buffer_line_height": "standard",
   "buffer_font_size": 16,
   "ui_font_size": 16,
 
   // "experimental.theme_overrides": {
-  //   "editor.background": "#080808",
-  //   "panel.background": "#080808",
-  //   "tab_bar.background": "#080808",
-  //   "title_bar.background": "#080808",
-  //   "editor.subheader.background": "#080808",
-  //   "editor.gutter.background": "#080808",
-  //   "tab.inactive_background": "#080808",
-  //   "status_bar.background": "#080808"
+  //   "background.appearance": "transparent",
+  //   "background": "#4c464290",
+  //   "editor.background": "#00000050",
+  //   "scrollbar.track.background": "#00000050",
+  //   "editor.gutter.background": "#00000050",
+  //   "tab_bar.background": "#00000050",
+  //   "terminal.background": "#00000050",
+  //   "toolbar.background": "#00000050",
+  //   "tab.active_background": "#28282820",
+  //   "tab.inactive_background": "#00000000",
+  //   "status_bar.background": "#00000050",
+  //   "title_bar.background": "#00000050",
+  //   "panel.background": "#00000050",
+  //   "border.variant": "#00000000",
+  //   "scrollbar.track.border": "#00000000",
+  //   "editor.active_line.background": "#00000000"
   // },
 
   // Line Settings:
@@ -35,12 +43,16 @@
 
   // General:
   "git": {
-    "git_gutter": "hide"
+    "git_gutter": "hide",
+    "inline_blame": {
+      "enabled": false
+    }
   },
   "vim_mode": true,
   "show_copilot_suggestions": false,
   "format_on_save": "on",
   "use_autoclose": false,
+  "always_treat_brackets_as_autoclosed": true,
 
   // Terminal Settings:
   "terminal": {
