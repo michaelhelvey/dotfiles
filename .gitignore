@@ -10,3 +10,5 @@
 .config/zed/conversations
 .config/auth0
 .config/zed/.tmp*
+.config/zed/embeddings
+.config/zed/prompts

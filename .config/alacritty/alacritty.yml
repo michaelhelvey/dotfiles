@@ -58,9 +58,9 @@ window:
   # Values for `decorations` (macOS only):
   #     - transparent: Title bar, transparent background and title bar buttons
   #     - buttonless: Title bar, transparent background and no title bar buttons
-  decorations: none
+  decorations: full
   # Background opacity
-  opacity: 0.8
+  opacity: 1.0
   # ^ Window opacity as a floating point number from `0.0` to `1.0`.
   # The value `0.0` is completely transparent and `1.0` is opaque.
   # Startup Mode (changes require restart)
@@ -98,7 +98,7 @@ window:
 # Font configuration
 font:
   # Point size
-  size: 16
+  size: 15
   offset:
     x: 0
     # line height:
@@ -110,6 +110,7 @@ font:
     family: JetbrainsMono Nerd Font
     # family: FiraCode Nerd Font
     # family: RobotoMono Nerd Font
+    # family: Hack Nerd Font
     # family: Inconsolata Nerd Font
     # family: Iosevka Nerd Font
     # family: UbuntuMono Nerd Font
@@ -118,6 +119,7 @@ font:
     # family: Intel One Mono
     # family: Maple Mono
     # family: Comic Code Ligatures
+    # family: MesloLGS Nerd Font Mono
     # The `style` can be specified to pick a specific face.
     style: Regular
     # Bold font face
@@ -683,7 +685,7 @@ key_bindings:
 
 # See https://github.com/alacritty/alacritty-theme
 import:
-  - ~/.config/alacritty/themes/themes/base16_dark_default.yaml
+  - ~/.config/alacritty/themes/themes/base16_default_dark.yaml
 # Color overrides:
 # colors:
 #   primary:

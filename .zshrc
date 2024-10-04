@@ -34,6 +34,7 @@ alias nrb="bun run build"
 alias vimrc="nvim $HOME/.config/nvim/init.lua"
 alias ka="killall"
 alias k="kubectl"
+alias lg="lazygit"
 
 unalias gd
 function gd() {
@@ -148,10 +149,9 @@ export PATH=$PATH:~/.local/bin
 export PATH=$PATH:~/.cargo/bin
 export PATH=$PATH:/usr/local/go/bin
 export PATH=$PATH:~/go/bin
-export PATH=$PATH:$HOME/dev/thirdparty/zig/0.12.0-dev
+export PATH=$PATH:$HOME/dev/thirdparty/zig/zig-macos-aarch64-0.13.0
 export PATH=$PATH:$HOME/dev/thirdparty/zig
 export PATH="/opt/homebrew/opt/llvm/bin:$PATH"
-export PATH=$PATH:~/dev/learning/flutter/flutter/bin
 
 export LIBRARY_PATH="$LIBRARY_PATH:$(brew --prefix)/lib"
 
@@ -169,8 +169,8 @@ export DOTNET_PATH="/usr/local/share/dotnet/sdk/"
 export PATH="$DOTNET_PATH:$PATH"
 
 # pnpm
-export PNPM_HOME="$HOME/Library/pnpm"
-export PATH="$PNPM_HOME:$PATH"
+# export PNPM_HOME="$HOME/Library/pnpm"
+# export PATH="$PNPM_HOME:$PATH"
 # pnpm end
 
 # Add zed CLI:
@@ -218,3 +218,6 @@ complete -o nospace -C /opt/homebrew/bin/terraform terraform
 [ -f "$HOME/.ghcup/env" ] && source "$HOME/.ghcup/env" # ghcup-env
 
 eval $(opam env)
+
+export FLUTTER_PATH="/Users/michaelhelvey/dev/flutter"
+export PATH="$FLUTTER_PATH/bin:$PATH"
