@@ -9,7 +9,7 @@ return {
   {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "base16-tomorrow-night",
+      colorscheme = "catppuccin",
     },
   },
   { "echasnovski/mini.pairs", enabled = false },
@@ -34,10 +34,10 @@ return {
           if cmp.visible() then
             -- You could replace select_next_item() with confirm({ select = true }) to get VS Code autocompletion behavior
             cmp.confirm({ select = true })
-          elseif vim.snippet.active({ direction = 1 }) then
-            vim.schedule(function()
-              vim.snippet.jump(1)
-            end)
+          -- elseif vim.snippet.active({ direction = 1 }) then
+          --   vim.schedule(function()
+          --     vim.snippet.jump(1)
+          --   end)
           elseif has_words_before() then
             cmp.complete()
           else
@@ -62,6 +62,19 @@ return {
     "neovim/nvim-lspconfig",
     opts = {
       inlay_hints = { enabled = false },
+    },
+  },
+  {
+    "zbirenbaum/copilot.lua",
+    cmd = "Copilot",
+    build = ":Copilot auth",
+    opts = {
+      suggestion = { enabled = false },
+      panel = { enabled = false },
+      filetypes = {
+        markdown = false,
+        help = true,
+      },
     },
   },
 }
