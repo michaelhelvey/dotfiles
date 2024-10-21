@@ -7,6 +7,13 @@
 // custom settings, run the `open default settings` command
 // from the command palette or from `Zed` application menu.
 {
+  "assistant": {
+    "default_model": {
+      "provider": "zed.dev",
+      "model": "claude-3-5-sonnet-20240620"
+    },
+    "version": "2"
+  },
   "show_inline_completions": false,
   "theme": "Base16 Tomorrow Night Eighties",
   // Appearance:
@@ -89,12 +96,18 @@
           "arguments": []
         }
       }
+    },
+    "Rust": {
+      "formatter": "language_server"
+    },
+    "Zig": {
+      "formatter": "language_server"
     }
   }
 
   // "experimental.theme_overrides": {
   //   "background.appearance": "transparent",
-  //   "background": "#00000090",
+  //   "background": "#000000FF",
   //   "editor.background": "#00000050",
   //   "scrollbar.track.background": "#00000050",
   //   "editor.gutter.background": "#00000050",

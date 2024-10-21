@@ -149,10 +149,12 @@ export PATH=$PATH:~/.local/bin
 export PATH=$PATH:~/.cargo/bin
 export PATH=$PATH:/usr/local/go/bin
 export PATH=$PATH:~/go/bin
-export PATH=$PATH:$HOME/dev/thirdparty/zig/zig-macos-aarch64-0.13.0
-export PATH=$PATH:$HOME/dev/thirdparty/zig
+export PATH=$PATH:$HOME/dev/thirdparty/zig-macos-aarch64-0.13.0
+export PATH=$PATH:$HOME/dev/thirdparty/bin
 export PATH="/opt/homebrew/opt/llvm/bin:$PATH"
 
+export LD_LIBRRAY_PATH="$LD_LIBRARY_PATH:$(brew --prefix)/lib"
+export CPATH="$CPATH:$(brew --prefix)/include"
 export LIBRARY_PATH="$LIBRARY_PATH:$(brew --prefix)/lib"
 
 # AUTO-TOOL PUKE

@@ -9,7 +9,7 @@ return {
   {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "catppuccin",
+      colorscheme = "base16-tomorrow-night-eighties",
     },
   },
   { "echasnovski/mini.pairs", enabled = false },
