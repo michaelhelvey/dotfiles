@@ -18,6 +18,11 @@ return {
   { "folke/noice.nvim", enabled = false },
   { "echasnovski/mini.icons", enabled = false },
   { "nvimdev/dashboard-nvim", enabled = false },
+  { "rafamadriz/friendly-snippets", enabled = false },
+  { "nvim-snippets", enabled = false },
+  { "cmp-buffer", enabled = false },
+  { "grug-far", enabled = false },
+  { "dressing.nvim", enabled = false },
   {
     "hrsh7th/nvim-cmp",
     opts = function(_, opts)
@@ -28,6 +33,16 @@ return {
       end
 
       local cmp = require("cmp")
+
+      for i, v in ipairs(opts.sources) do
+        if v == "snippets" then
+          table.remove(opts.sources, i)
+        elseif v == "lazydev" then
+          table.remove(opts.sources, i)
+        elseif v == "buffer" then
+          table.remove(opts.sources, i)
+        end
+      end
 
       opts.mapping = vim.tbl_extend("force", opts.mapping, {
         ["<Tab>"] = cmp.mapping(function(fallback)
@@ -61,6 +76,7 @@ return {
   {
     "neovim/nvim-lspconfig",
     opts = {
+
       inlay_hints = { enabled = false },
     },
   },
