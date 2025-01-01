@@ -1,4 +1,4 @@
-add_newline = false
+add_newline = false 
 
 [battery]
 full_symbol = "• "
@@ -16,9 +16,8 @@ symbol = "[⬢](bold green) "
 [pulumi]
 symbol = "🧊 "
 
-# Disable the package module, hiding it from the prompt completely
-[gcloud]
-disabled = true
+[typst]
+symbol = "t "
 
-[zig]
+[gcloud]
 disabled = true

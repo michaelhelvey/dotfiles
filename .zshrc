@@ -32,6 +32,7 @@ alias nrs="bun run --silent start"
 alias nrt="bun run test"
 alias nrb="bun run build"
 alias vimrc="nvim $HOME/.config/nvim/init.lua"
+alias hxconfig="hx $HOME/.config/helix/config.toml"
 alias ka="killall"
 alias k="kubectl"
 alias lg="lazygit"
@@ -50,14 +51,9 @@ function root() {
 	cd $(git rev-parse --show-toplevel)
 }
 
-VIM_CONFIG_DIR=$HOME/.config/nvim
-
-alias vimcolor="cd $VIM_CONFIG_DIR && nvim $VIM_CONFIG_DIR/after/plugin/color.lua"
-alias vimconfig="cd $VIM_CONFIG_DIR && nvim $VIM_CONFIG_DIR/init.lua"
-
 function font() {
-	CONFIG_PATH="$HOME/.config/alacritty/alacritty.yml"
-	sd 'size: (\d+)' "size: $1" $CONFIG_PATH
+	CONFIG_PATH="$HOME/.config/alacritty/alacritty.toml"
+	sd 'size = (\d+)' "size = $1" $CONFIG_PATH
 }
 
 function kill_port() {
@@ -116,19 +112,19 @@ function note() {
 	notes_dir="$(note_base_dir)/Notes/"
 	date_part=$(date "+%A_%b_%d_%Y")
 	filename=Journal_$date_part.md
-	vim $notes_dir$filename
+	hx $notes_dir$filename
 }
 
 function question() {
 	notes_dir="$(note_base_dir)/Questions/"
 	filename=questions.md
-	vim $notes_dir$filename
+	hx $notes_dir$filename
 }
 
 function todo() {
 	notes_dir="$(note_base_dir)/"
 	filename=todo.md
-	vim $notes_dir$filename
+	hx $notes_dir$filename
 }
 
 # updates my company's prettier configuration when I am writing markdown files
@@ -152,6 +148,7 @@ export PATH=$PATH:~/go/bin
 export PATH=$PATH:$HOME/dev/thirdparty/zig-macos-aarch64-0.13.0
 export PATH=$PATH:$HOME/dev/thirdparty/bin
 export PATH="/opt/homebrew/opt/llvm/bin:$PATH"
+export PATH="$PATH:$HOME/dev/thirdparty/wabt/bin"
 
 export LD_LIBRRAY_PATH="$LD_LIBRARY_PATH:$(brew --prefix)/lib"
 export CPATH="$CPATH:$(brew --prefix)/include"
@@ -221,5 +218,5 @@ complete -o nospace -C /opt/homebrew/bin/terraform terraform
 
 eval $(opam env)
 
-export FLUTTER_PATH="/Users/michaelhelvey/dev/flutter"
-export PATH="$FLUTTER_PATH/bin:$PATH"
+# c3 lang
+export PATH="$PATH:$HOME/dev/thirdparty/c3c"

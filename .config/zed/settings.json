@@ -15,9 +15,9 @@
     "version": "2"
   },
   "show_inline_completions": false,
-  "theme": "Base16 Tomorrow Night Eighties",
+  "theme": "Base16 Tomorrow Night",
   // Appearance:
-  "buffer_font_family": "Hack Nerd Font",
+  "buffer_font_family": "JetBrains Mono",
   "buffer_line_height": "standard",
   "buffer_font_size": 14,
   "ui_font_size": 14,
