@@ -1,0 +1,23 @@
+inherits = "base16_transparent"
+
+"variable" = "light-gray"
+"variable.other.member" = "light-gray"
+"variable." = "light-gray"
+"constant.numeric" = "yellow"
+"constant" = "s-yellow"
+"attribute" = "s-yellow"
+"type" = "s-blue"
+"string"  = "light-gray"
+"constant.character.escape" = "light-cyan"
+"function" = "s-green"
+"function.macro" = "light-red"
+"constructor" = "s-blue"
+"special" = "s-blue"
+"keyword" = "light-red"
+"label" = "light-magenta"
+"namespace" = "light-magenta"
+
+[palette]
+"s-blue" = "#8db2d1"
+"s-yellow" = "#ffc17b"
+"s-green" = "#88b479"

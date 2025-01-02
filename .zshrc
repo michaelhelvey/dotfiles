@@ -23,9 +23,11 @@ source $ZSH/oh-my-zsh.sh
 eval "$(/opt/homebrew/bin/brew shellenv)"
 eval "$(/opt/homebrew/bin/brew shellenv)"
 
+export EDITOR="hx"
+
 alias c="clear"
-alias vim="nvim"
-alias vi="nvim"
+alias vim="hx"
+alias vi="hx"
 alias ls="lsd -l --icon=never"
 alias nrd="bun run --silent dev"
 alias nrs="bun run --silent start"
