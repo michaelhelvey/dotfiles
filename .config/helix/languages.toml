@@ -1,4 +1,24 @@
 [[language]]
 name = "markdown"
 auto-format = true
-formatter = { command = "prettier", args = ["--print-width", "80", "--prose-wrap", "always", "--parser", "markdown"]}
+formatter = { command = "prettier", args = ["--print-width", "100", "--prose-wrap", "always", "--parser", "markdown"]}
+
+[[language]]
+name = "html"
+auto-format = true
+formatter = { command = "prettier", args = ["--print-width", "100", "--parser", "html"]}
+
+[[language]]
+name = "javascript"
+auto-format = true
+formatter = { command = "prettier", args = ["--print-width", "100", "--parser", "typescript"]}
+
+[[language]]
+name = "typescript"
+auto-format = true
+formatter = { command = "prettier", args = ["--print-width", "100", "--parser", "typescript"]}
+
+[[language]]
+name = "tsx"
+auto-format = true
+formatter = { command = "prettier", args = ["--print-width", "100", "--parser", "typescript"]}
