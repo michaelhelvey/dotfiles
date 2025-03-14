@@ -16,11 +16,5 @@
     "bindings": {
       "f d": ["vim::SwitchMode", "Normal"]
     }
-  },
-  {
-    "context": "Pane",
-    "bindings": {
-      "ctrl-w-o": "pane::CloseInactiveItems"
-    }
   }
 ]

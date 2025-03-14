@@ -1,4 +1,4 @@
-add_newline = false 
+add_newline = false
 
 [battery]
 full_symbol = "• "
@@ -18,6 +18,3 @@ symbol = "🧊 "
 
 [typst]
 symbol = "t "
-
-[gcloud]
-disabled = true

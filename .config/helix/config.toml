@@ -1,4 +1,4 @@
-theme = "acme"
+theme = "base16_transparent"
 
 [keys.normal]
 # S/O to https://github.com/LGUG2Z/helix-vim/blob/master/config.toml
@@ -17,4 +17,3 @@ auto-pairs = false
 
 [editor.lsp]
 auto-signature-help = false
-

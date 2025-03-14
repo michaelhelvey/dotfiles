@@ -22,3 +22,8 @@ formatter = { command = "prettier", args = ["--print-width", "100", "--parser", 
 name = "tsx"
 auto-format = true
 formatter = { command = "prettier", args = ["--print-width", "100", "--parser", "typescript"]}
+
+[[language]]
+name = "hcl"
+auto-format = true
+formatter = { command = "terraform", args = ["fmt", "-"]}

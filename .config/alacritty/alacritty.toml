@@ -7,12 +7,9 @@ mods = "Control"
 live_config_reload = true
 import = [
     # "~/.config/alacritty/themes/themes/gruber_darker.toml"
-    "~/.config/alacritty/themes/themes/meliora.toml"
+    "~/.config/alacritty/themes/themes/plain.toml"
     # "~/.config/alacritty/base16-alacritty/colors/base16-tomorrow-night-eighties-256.toml"
 ]
-
-[bell]
-command = "None"
 
 [env]
 TERM = "xterm-256color"
@@ -21,7 +18,7 @@ TERM = "xterm-256color"
 size = 16
 
 [font.normal]
-family = "Jetbrains Mono"
+family = "Hack Nerd Font"
 style = "Regular"
 
 [font.offset]

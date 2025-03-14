@@ -90,6 +90,19 @@ function sarcasm {
 	echo "$output"
 }
 
+function t4_psql {
+	local secret_name="t4-platform-db-creds-$1-$STAGE"
+	local proxy_name="t4-platform-aurora-pg-$STAGE-proxy"
+	local proxy_endpoint=$(aws rds describe-db-proxies --db-proxy-name t4-platform-aurora-pg-$STAGE-proxy | jq -r '.DBProxies[0].Endpoint')
+	local secret_json=$(aws secretsmanager get-secret-value --secret-id=$secret_name | jq -r '.SecretString')
+
+	local username=$(echo $secret_json | jq -r '.username')
+	local password=$(echo $secret_json | jq -r '.password')
+
+	export PGPASSWORD=$(printf '%s' $password | jq -sRr @uri)
+	psql "postgres://$username:$PGPASSWORD@$proxy_endpoint:5432/$1" $@
+}
+
 alias kepler-postgres="$HOME/dev/kepler/bin/cloud_sql_proxy -instances=kepler-production-251715:us-central1:kepler-postgres=tcp:5434"
 
 if [ "$IS_VSCODE" != "true" ]
@@ -151,6 +164,8 @@ export PATH=$PATH:$HOME/dev/thirdparty/zig-macos-aarch64-0.13.0
 export PATH=$PATH:$HOME/dev/thirdparty/bin
 export PATH="/opt/homebrew/opt/llvm/bin:$PATH"
 export PATH="$PATH:$HOME/dev/thirdparty/wabt/bin"
+# fml
+export PATH="/Users/michaelhelvey/.nvm/versions/node/v22.12.0/bin/:$PATH"
 
 export LD_LIBRRAY_PATH="$LD_LIBRARY_PATH:$(brew --prefix)/lib"
 export CPATH="$CPATH:$(brew --prefix)/include"
@@ -222,3 +237,5 @@ eval $(opam env)
 
 # c3 lang
 export PATH="$PATH:$HOME/dev/thirdparty/c3c"
+
+

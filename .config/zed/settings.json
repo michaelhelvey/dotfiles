@@ -15,7 +15,7 @@
     "version": "2"
   },
   "show_inline_completions": false,
-  "theme": "Base16 Tomorrow Night",
+  "theme": "One Dark",
   // Appearance:
   "buffer_font_family": "JetBrains Mono",
   "buffer_line_height": "standard",
